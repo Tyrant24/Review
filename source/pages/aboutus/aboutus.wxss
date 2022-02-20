@@ -1,0 +1,10 @@
+.banquan{
+  font-size: 20rpx;
+  position: fixed;
+  color: #999BA1;
+  bottom: 5%;
+  width: 100vw
+}
+.margin-top-50 {
+  margin-top: 50rpx;
+}

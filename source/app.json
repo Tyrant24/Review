@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/mine/mine",
+    "pages/myvote/myvote",
+    "pages/invote/invote",
+    "pages/newballot/newballot",
+    "pages/ballotdetail/ballotdetail", 
+    "pages/aboutus/aboutus",
+    "pages/fankui/fankui",
+    "pages/ziliao/ziliao",
+    "pages/problem/problem",
+    "pages/addedvote/addedvote",
+    "pages/newscore/newscore",
+    "pages/scoredetail/scoredetail",
+    "pages/votedetail/votedetail",
+    "pages/rankingdetail/rankingdetail",
+    "pages/newranking/newranking",
+    "pages/auth/auth"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "创建",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/a1.png",
+        "selectedIconPath": "images/icons/a.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/b1.png",
+        "selectedIconPath": "images/icons/b.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

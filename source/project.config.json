@@ -1,0 +1,171 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.3",
+	"appid": "wxc3351847ee6c8dce",
+	"projectname": "%E8%AF%84%E5%AE%A1%E4%B8%93%E5%AE%B6",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 14,
+			"list": [
+				{
+					"id": 0,
+					"name": "我的页面",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建投票",
+					"pathName": "pages/addedvote/addedvote",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/aboutus/aboutus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/fankui/fankui",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我发起的投票",
+					"pathName": "pages/myvote/myvote",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投票详情",
+					"pathName": "pages/votedetail/votedetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的资料",
+					"pathName": "pages/ziliao/ziliao",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/aboutus/aboutus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评分详情",
+					"pathName": "pages/scoredetail/scoredetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排名详情",
+					"pathName": "pages/rankingdetail/rankingdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我参与的评审",
+					"pathName": "pages/invote/invote",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建评分",
+					"pathName": "pages/newscore/newscore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建排名",
+					"pathName": "pages/newranking/newranking",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "创建表决",
+					"pathName": "pages/newballot/newballot",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "表决详情",
+					"pathName": "pages/ballotdetail/ballotdetail",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

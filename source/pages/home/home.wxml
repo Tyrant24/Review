@@ -1,0 +1,17 @@
+<view class="block flex-row flex-center  ">
+  <view class="flex-row flex-column" style="width:100%">
+    <image src="{{uploadpath}}resource/{{res.homeimg}}" class="img  "></image>
+    
+    <view class="button bg-primary  text-center h4" hover-class="button-hover " bindtap="toadd">创建投票</view>
+
+    <view class="button bg-primary   text-center h4" hover-class="button-hover " bindtap="topage" data-name="newballot">创建表决</view>
+
+    <view class="button bg-primary   text-center h4" hover-class="button-hover " bindtap="topage" data-name="newscore">创建评分</view>
+
+    <view class="button bg-primary   text-center h4" hover-class="button-hover " bindtap="topage" data-name="newranking">创建排名</view>
+
+   <!-- //clear-button  -->
+    <!-- <button wx:if='{{memberinfo==null||memberinfo==undefined}}'  class='buttons' hover-class="buttons2" open-type="getUserInfo" bindgetuserinfo="getUserInfo">  </button> -->
+
+  </view>
+</view>

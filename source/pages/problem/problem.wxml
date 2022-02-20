@@ -1,0 +1,4 @@
+<!--pages/problem/problem.wxml-->
+<view class="margin-40">
+<text class="">{{problem.neirong}}</text>
+</view>

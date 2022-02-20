@@ -1,0 +1,76 @@
+<view style="height:20rpx;"></view>
+<view class="padding-left-68 padding-right-64" style="color:#404858;">
+  <view class="flex-row flex-center">
+    <view class="h5">头像</view>
+    <view class="flex-1"></view>
+    <image src='{{memberinfo.avatarUrl}}' mode='aspectFill' class='icon-56 radius-50' style='' ></image>
+  
+  </view>
+  <view class="line"></view>
+  <view class="flex-row flex-center">
+    <view class="h5">姓名</view>
+    <view class="flex-1"></view>
+    <input class="text-right h5" bindinput="name" placeholder="无" value="{{memberinfo.name}}" maxlength="11"></input>
+  </view>
+
+  <view class="line"></view>
+  <view class="flex-row flex-center">
+    <view class="h5">手机</view>
+    <view class="flex-1"></view>
+    <view >{{shouji}}</view>
+<!-- wx:if="{{shouji==''}}" -->
+      <button wx:if="{{shouji==''}}" class="clear-button " open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo">
+      获取
+      </button>
+      <image class="icon-15" src="{{uploadpath}}resource/{{res.right}}"></image>
+  </view>
+  <view class="line"></view>
+
+   <view class="flex-row flex-center">
+    <view class="h5">性别</view>
+    <view class="flex-1"></view>
+    <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+
+        <view wx:if="{{index==''}}">
+          请选择
+        </view>
+
+        <view wx:if="{{index!=''}}" class="picker">
+          {{picker[index]}}
+        </view>
+      </picker>
+  </view>
+  <view class="line"></view>
+
+   <view class="flex-row flex-center">
+    <view class="h5">单位</view>
+    <view class="flex-1"></view>
+    <input class="text-right h5"  bindinput="danwei" value="{{memberinfo.danwei}}" placeholder="无"></input>
+  </view>
+  <view class="line"></view>
+
+   <view class="flex-row flex-center">
+    <view class="h5">职称</view>
+    <view class="flex-1"></view>
+    <input class="text-right h5"  bindinput="zhichen" value="{{memberinfo.zhichen}}" placeholder="无"></input>
+  </view>
+  <view class="line"></view>
+
+   <view class="flex-row flex-center">
+    <view class="h5">职务</view>
+    <view class="flex-1"></view>
+    <input class="text-right h5"  bindinput="zhiwu" value="{{memberinfo.zhiwu}}" placeholder="无"></input>
+  </view>
+  <view class="line"></view>
+
+   <view class="flex-row flex-center">
+    <view class="h5">专业</view>
+    <view class="flex-1"></view>
+    <input class="text-right h5"  bindinput="zhuanye" value="{{memberinfo.zhuanye}}" placeholder="无"></input>
+  </view>
+  <view class="line"></view>
+
+ 
+  <view style="height:300rpx;"></view>
+  <view class="tijiao bg-primary" bindtap="tijiao">确定</view>
+</view>

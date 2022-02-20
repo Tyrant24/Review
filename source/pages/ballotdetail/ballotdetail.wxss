@@ -1,0 +1,116 @@
+/* pages/ballotdetail/ballotdetail.wxss */
+ Page{
+  background: rgb(248, 248, 248); 
+}
+.s_block{
+  border: 2rpx solid #005B5C;
+  border-radius: 10rpx;
+  padding: 4rpx 10rpx 4rpx 10rpx;
+}
+.update{
+  padding: 14rpx 60rpx 14rpx 60rpx;
+  border: 2rpx solid #005B5C;
+  border-radius: 60rpx;
+}
+ 
+.list_block{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  border-bottom: 2rpx solid rgb(243, 243, 243);
+}
+/* .width-420{
+  width: 420rpx;
+}
+.width-500{
+  width: 500rpx;
+} */
+.tiao{
+  /* width: 420rpx; */
+  background: #005B5C;
+  height: 20rpx;
+  border-radius: 20rpx;
+}
+.tiao2{
+  position: absolute;
+  z-index: 10; 
+  top: 0;
+  background: #005B5C;
+  height: 20rpx;
+  border-radius: 20rpx;
+}
+  .button{ 
+   height: 80rpx;
+   line-height: 80rpx;
+   color: white;
+   border-radius: 10rpx;
+ }
+   .button2{ 
+   height: 80rpx;
+   line-height: 80rpx;
+   color: #005B5C;
+   border: 2rpx solid #005B5C;
+   border-radius: 10rpx;
+ }
+  .button2-hover{ 
+   background: white;
+   color: #8e84f5; 
+ }
+ .button-hover{ 
+   background: #005B5C;
+   color: rgb(221, 221, 221); 
+ }
+ 
+ .input{
+   width: 200rpx;
+   height: 20rpx;
+   padding-bottom: 0;
+   border-radius: 10rpx;
+   background: #f1f1f1;
+   border: 2rpx solid #f1f1f1;
+ }
+  .input_end{
+   width: 100rpx;
+   height: 20rpx;
+   padding-bottom: 0;
+   border-radius: 10rpx;
+   background: #f1f1f1;
+   border: 2rpx solid #f1f1f1;
+ }
+ .input2{
+   width: 200rpx;
+   height: 20rpx;
+   padding-bottom: 0;
+   border-radius: 10rpx;
+   background: #f1f1f1;
+   border: 2rpx solid #f1f1f1;
+ }
+
+  .blackblock {
+  position: fixed;
+  z-index: 100;
+  background: black;
+  opacity: 0.5;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+ 
+.inputblock {
+   position: fixed;
+  z-index: 100;
+   top: 30%; 
+  width: 500rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+  background: white;
+}
+.inputs{
+  background: rgb(245, 245, 245);
+  border: 0;
+  padding: 5rpx;
+  border-radius: 10rpx;
+
+}

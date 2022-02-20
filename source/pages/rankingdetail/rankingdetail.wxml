@@ -1,0 +1,202 @@
+<!--pages/scoredetail/scoredetail.wxml-->
+
+<view class="sh" wx:if='{{instinfo.switch_value=="Y"}}'></view>
+
+<view class="padding-30 bg-white">
+
+	<view class="flex-row flex-center ">
+		<view class="flex-1">
+			<view class="h4 txt-black">{{info.theme}}</view>
+			<view class="flex-row flex-center margin-top-20">
+				<image src="{{info.member_avatarUrl}}" class="icon-15 radius-50"></image>
+				<view class="h6 margin-left-10 txt-gray">{{info.member_id_name}}</view>
+			</view>
+		</view>
+		<button open-type="share" class="clear-button">
+			<image src="{{uploadpath}}resource/{{res.fenxiang}}" class="icon-50"></image>
+		</button>
+	</view>
+
+	<view class="flex-row flex-top margin-top">
+		<image wx:if='{{info.img!=""&&info.img!="undefined"}}' src="{{uploadpath}}ranking/{{info.img}}" class="icon-50"></image>
+		<view class="   flex-1 margin-left-20">
+			<view class="h5">{{info.describe}}</view>
+
+			<view class="flex-row flex-center flex-wrap ">
+				<view class="s_block h6 margin-left-10 margin-top-10">排名</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.niming_value=="N"}}'>实名评审</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.niming_value=="Y"}}'>匿名评审</view>
+				<view class="s_block h6 margin-left-10 margin-top-10">{{info.jijie_name}}</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.duoxuan_value=="Y"}}'>允许只对部分选项排名</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.duoxuan_value=="Y"}}'>最少选{{info.minnum}}个</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.duoxuan_value=="Y"}}'>最多选{{info.maxnum}}个</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.yunxu_value=="Y"}}'>允许评委查看详细评审数据</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.kejian_value=="Y"}}'>评审结果仅创建者可见</view>
+				<view class="s_block h6 margin-left-10 margin-top-10" wx:if='{{info.mowei_value=="Y"}}'>未排名选项并列排在末尾</view>
+			</view>
+
+		</view>
+	</view>
+
+	<view class="flex-row flex-center margin-top" wx:if='{{info.member_id==memberinfo.id}}'>
+		<view class="flex-1"></view>
+
+		<view class="update flex-row flex-center " bindtap="toupdate">
+			<image src="{{uploadpath}}resource/{{res.text}}" class="icon-25"></image>
+			<view class="txt-primary h4 margin-left-20">复制一下</view>
+		</view>
+
+		<view class=" flex-row flex-center margin-left-40" bindtap="binddelete" id="{{info.id}}">
+			<image src="{{uploadpath}}resource/{{res.delete_icon}}" class="icon-25"></image>
+			<view class="txt-red margin-left-10">删除</view>
+		</view>
+		<view class="flex-1"></view>
+	</view>
+
+	<!-- <view class="flex-row flex-column margin-top" wx:if='{{info.gradestatus=="B"}}'>
+    <view class="update flex-row flex-center">
+      <image src="{{uploadpath}}resource/{{res.text}}" class="icon-25"></image>
+      <view class="txt-primary h4 margin-left-20">分享结果图</view>
+    </view>
+  </view> -->
+
+	<view class="opa h6 margin-top">创建时间：{{info.created_realtime}}</view>
+	<view class="opa h6 margin-top-10">结束时间：{{info.dealline_realtime}}</view>
+
+	<view class="flex-row flex-center margin-top-10">
+		<image src="{{uploadpath}}resource/{{res.time}}" class="icon-15"></image>
+		<view class="h6 txt-primary flex-1 margin-left-10" wx:if='{{info.rankingstatus=="A"}}'>{{info.timeslot}}后结束</view>
+		<view class="h6 txt-primary flex-1 margin-left-10" wx:if='{{info.rankingstatus=="B"}}'>已结束</view>
+		<view class="h6 txt-primary">{{info.peoplenum==""?0:info.peoplenum}}人</view>
+		<view class="h6">已排名</view>
+	</view>
+
+</view>
+
+
+<view class="margin-top-20 flex-row flex-center  padding-20">
+	<view class="flex-1"></view>
+	<image src="{{uploadpath}}resource/{{res.shuaxin}}" class="icon" bindtap="shuaxin"></image>
+	<view class="txt-primary   h5 margin-left-10" bindtap="shuaxin">刷新一下</view>
+	<view class="flex-1"></view>
+	<image src="{{uploadpath}}resource/{{res.daochu}}" bindtap="daochu" wx:if='{{info.member_id==memberinfo.id||info.yunxu_value=="Y"}}' class="icon"></image>
+	<view class="txt-primary   h5 margin-left-10" bindtap="daochu" wx:if='{{info.member_id==memberinfo.id||info.yunxu_value=="Y"}}'>数据导出</view>
+	<view class="flex-1" wx:if='{{info.member_id==memberinfo.id||info.yunxu_value=="Y"}}'></view>
+</view>
+
+
+<view class="  bg-white margin-top-20">
+	<view class=" list_block" wx:for='{{rankoptionlist}}' wx:key='k' wx:for-index='index'>
+
+		<view class="flex-row flex-center ">
+
+			<view wx:if='{{info.duoxuan_value=="Y"&&checked==false&&num==0&&info.rankingstatus=="A"}}'>
+
+				<view class="padding-10" style="padding-left:0" bindtap="bindnocheck" data-index="{{index}}" wx:if='{{item.check==true}}'>
+					<image src="{{uploadpath}}resource/{{res.check}}" class="icon-25"></image>
+				</view>
+
+				<view class="padding-10" style="padding-left:0" bindtap="bindcheck" data-index="{{index}}" id="{{item.id}}" wx:if='{{item.check==false}}'>
+					<image src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-25"></image>
+				</view>
+			</view>
+
+			<image wx:if='{{item.img!=""}}' src="{{uploadpath}}rankoption/{{item.img}}" class="icon-30 margin-left-20"></image>
+
+			<view class="margin-left-30 flex-1">
+				<view class="margin-bottom-10">{{item.content}}</view>
+
+				<view class="flex-row flex-center">
+
+					<view wx:if='{{item.img!=""}}' class="piao flex-1">
+						<view class="tiao width-270 "></view>
+						<view class="tiao2 flex-1" wx:if='{{(info.kejian_value=="N"||info.member_id==memberinfo.id)&&(info.niming_value=="N"||num!=0||info.rankingstatus=="B")}}' style="width:{{item.bf*270}}rpx"></view>
+					</view>
+
+					<view wx:if='{{item.img==""}}' class="piao flex-1">
+						<view class="tiao width-350"></view>
+						<view class="tiao2 flex-1" wx:if='{{(info.kejian_value=="N"||info.member_id==memberinfo.id)&&(info.niming_value=="N"||num!=0||info.rankingstatus=="B")}}' style="width:{{(item.bf)*350}}rpx"></view>
+					</view>
+
+					<view wx:if='{{info.kejian_value=="N"||info.member_id==memberinfo.id}}'>
+						<view class="margin-left-20 h6" wx:if='{{info.jijie=="A"&&(num!=0||info.rankingstatus=="B")}}'>第{{item.avgr!=""&&item.avgr!=null?item.avgr:'--'}}名</view>
+						<view class="margin-left-20 h6" wx:if='{{info.jijie=="B"&&(num!=0||info.rankingstatus=="B")}}'>第{{item.rankresult!=""&&item.rankresult!=null?item.rankresult:'--'}}名</view>
+					</view>
+
+					<picker wx:if='{{num==0&&item.check==true&&checked==true&&info.rankingstatus=="A"}}' bindchange="bindinput" range="{{paiminglist}}" id="{{index}}" range-key="id" value="{{0}}" bindtap="bindpicker" data-num="{{item.number}}">
+						<input style="height:40rpx;" disabled="{{true}}" placeholder="在此选择名次" value="{{item.number>0?item.number:''}}" class="h5 padding-5 input text-center margin-left-10"></input>
+					</picker>
+
+					<input style="height:40rpx;" wx:if='{{info.rankingstatus=="B"||num!=0}}' disabled="{{true}}" value="{{item.myrank!=''&&item.myrank!=null?item.myrank:'--'}}" class="h6 padding-5 input margin-left-10 text-center"></input>
+
+					<input style="height:40rpx;" wx:if='{{checked==false&&num==0&&info.rankingstatus=="A"}}' disabled="{{true}}" value="请先选择排名对象" class="h6 padding-5 input2 margin-left-10 text-center"></input>
+
+				</view>
+
+				<!-- <view wx:if='{{(info.kejian_value=="N"||info.member_id==memberinfo.id)&&info.niming_value=="N"&&num!=0}}'  class="flex-row flex-center flex-wrap">
+					<view class="flex-row flex-center   {{idx>0?'margin-left-20':''}}" wx:for='{{item.rankpersonlist}}' wx:key='s' wx:for-index='idx'>
+						<image src="{{item.avatarUrl}}" class="icon-15 radius-50"></image>
+					</view>
+				</view> -->
+
+			</view>
+
+		</view>
+
+		<view wx:if='{{(info.kejian_value=="N"||info.member_id==memberinfo.id)&&info.niming_value=="N"&&num!=0}}' class="flex-row flex-center flex-wrap  ">
+			<view class="   margin-left-20" wx:for='{{item.rankpersonlist}}' wx:key='s' wx:for-index='idx'>
+				<image src="{{item.avatarUrl}}" class="icon-15 radius-50"></image> 
+			</view>
+		</view>
+
+	</view>
+</view>
+
+<view class="padding-30 flex-row flex-center">
+	<view class=" txt-primary" wx:if="{{num==0&&checked==true&&info.rankingstatus=='A'}}" bindtap="reset">重置排名</view>
+	<view class="flex-1"></view>
+	<view class="  txt-primary" wx:if="{{num==0&&checked==true&&info.duoxuan_value=='Y'&&info.rankingstatus=='A'}}" bindtap="againcheck">重新选择</view>
+</view>
+<!-- <view class="flex-row flex-center padding-30 " style="padding-bottom:0" wx:if='{{info.niming_value=="Y"&&num==0}}'>
+  <view class=" txt-black flex-1">匿名排名</view>
+  <switch color='#756af1' bindchange="niming" />
+</view> -->
+
+<view class="button bg-primary margin-40 text-center  " wx:if='{{num==0&&info.rankingstatus=="A"&&checked==false}}' style=" " hover-class="button-hover " bindtap="confirm">确认选择排名对象</view>
+
+<view class="button bg-primary margin-40 text-center  " wx:if='{{num==0&&info.rankingstatus=="A"&&checked==true}}' style=" " data-name="{{info.theme}}" hover-class="button-hover " bindtap="submit">提交排名</view>
+
+
+<view class="button2   margin-40 text-center  " wx:if='{{num!=0||info.rankingstatus!="A"}}' style=" " hover-class="button2-hover " bindtap="toadd">创建新的排名</view>
+
+<view class="button bg-primary margin-40 text-center  " wx:if='{{info.member_id==memberinfo.id&&info.rankingstatus=="A"}}' style=" " hover-class="button-hover " bindtap="bindend" id="{{info.id}}">结束排名</view>
+
+<view class="flex-row flex-column">
+	<view class="flex-row flex-center">
+		<view class="h6  ">评审服务由</view>
+		<view class="h6 txt-primary margin-left-10 margin-right-10">{{instinfo.name}}</view>
+		<view class="h6  ">提供</view>
+	</view>
+</view>
+
+<view class="height-50"></view>
+
+<view wx:if='{{show==true}}'>
+	<view class="blackblock" bindtap="setname"></view>
+	<view class=" flex-row flex-column">
+		<view class="inputblock flex-row flex-column">
+			<view class="flex-1"></view>
+			<view class="h5 margin-bottom-10">本次评审为实名评审</view>
+			<input style="height:40rpx;" placeholder="请输入您的名字" bindinput="bindname" class="h5 text-center margin-top-20 inputs"></input>
+
+			<button class="clear-button  margin-top-10 " open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo">
+				<input style="height:40rpx;" disabled="{{true}}" placeholder="授权获取手机号" value="{{memberinfo.mobile==''?'获取手机号':memberinfo.mobile}}" class="h5 text-center margin-top-20 inputs"></input>
+			</button>
+			<view class="flex-1"></view>
+			<view class="  txt-blue padding-10" bindtap="submit">确定</view>
+			<view class="flex-1"></view>
+		</view>
+	</view>
+</view>
+
+<button wx:if='{{memberinfo==null||memberinfo==undefined}}' class="btns bg-tst " hover-class="bg-tst" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> </button>

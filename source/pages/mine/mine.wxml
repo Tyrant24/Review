@@ -1,0 +1,52 @@
+<!--pages/mine/mine.wxml-->
+<view class="bg-white flex-row flex-center padding-40 margin-top-20 margin-bottom-20">
+  <image wx:if='{{memberinfo!=null&&memberinfo!=undefined}}' src="{{memberinfo.avatarUrl}}" class="icon-60 radius-50"></image>
+  <view class="margin-left-20 h4">{{memberinfo.nickName}}</view>
+  <image wx:if='{{memberinfo==null||memberinfo==undefined}}' src="{{uploadpath}}resource/{{res.noheadimg}}" class="icon-60 radius-50"></image>
+  <view wx:if='{{memberinfo==null||memberinfo==undefined}}' class="margin-left-20 h4">未授权</view>
+</view>
+
+<button wx:if='{{memberinfo==null||memberinfo==undefined}}' class='buttons' hover-class="buttons2" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> </button>
+
+<view class="bg-white flex-row flex-center padding-40 " bindtap="topage" data-name="ziliao">
+  <image src="{{uploadpath}}resource/{{res.ziliao}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">个人资料</view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<view class="bg-white flex-row flex-center margin-top-20 padding-40 " bindtap="topage" data-name="myvote">
+  <image src="{{uploadpath}}resource/{{res.faqi}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">我创建的评审</view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<view class="bg-white flex-row flex-center padding-40 " bindtap="topage" data-name="invote">
+  <image src="{{uploadpath}}resource/{{res.canyu}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">我参与的评审</view>
+
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<view class="bg-white flex-row flex-center margin-top-20 padding-40 " bindtap="topage" data-name="aboutus">
+  <image src="{{uploadpath}}resource/{{res.us}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">关于我们</view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<view class="bg-white flex-row flex-center padding-40 " bindtap="topage" data-name="problem">
+  <image src="{{uploadpath}}resource/{{res.kefu}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">常见问题</view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<view class="bg-white flex-row flex-center padding-40 " bindtap="topage" data-name="fankui">
+  <image src="{{uploadpath}}resource/{{res.fankui}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">意见反馈</view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view>
+
+<!-- <view class="bg-white flex-row flex-center padding-40 " bindtap="lianxikefu">
+  <image src="{{uploadpath}}resource/{{res.kefu}}" class="icon-25 "></image>
+  <view class="margin-left-20 flex-1">联系客服</view> 
+  <image src="{{uploadpath}}resource/{{res.right}}" class="icon "></image>
+</view> -->

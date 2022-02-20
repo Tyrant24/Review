@@ -1,0 +1,30 @@
+/* pages/mydata/mydata.wxss */
+
+.padding-left-68 {
+  padding-left: 34rpx;
+}
+
+.padding-right-64 {
+  padding-right: 32rpx;
+}
+
+.line {
+  /* width: 100vw;
+  */
+  border: 1rpx solid rgba(239, 240, 241, 1);
+  margin: 28rpx 0 15rpx;
+}
+.icon-56 {
+  width: 112rpx;
+  height: 112rpx;
+}
+
+.tijiao {  
+  width: 693rpx;
+  height: 76rpx;
+  /* background: #756af1; */
+  border-radius: 38rpx;
+  text-align: center;
+  color: #ffffff;
+  line-height: 76rpx;
+}

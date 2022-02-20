@@ -1,0 +1,37 @@
+/* pages/fankui/fankui.wxss */
+
+Page {
+  background: rgb(248, 248, 248);
+}
+.banquan{
+  font-size: 20rpx;
+  position: fixed;
+  color: #999BA1;
+  bottom: 5%;
+  width: 100vw
+}
+.place-holder{
+
+
+}
+.block {
+  /* border: 2rpx solid rgb(228, 228, 228); */
+  border-radius: 20rpx;
+
+}
+.inputs{
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.button {
+  height: 80rpx;
+  line-height: 80rpx;
+  color: white;
+  border-radius: 10rpx;
+}
+
+.button-hover {
+  background: #756af1;
+  color: rgb(221, 221, 221);
+}

@@ -1,0 +1,17 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view style="height:100rpx"></view>
+
+
+
+<view class="flex-row flex-column">
+  <image src="{{uploadpath}}aboutus/{{aboutus.logo}}" class="icon-75"></image>
+  <view style="font-size:36rpx;" class="margin-top-50 txt-bold">{{aboutus.name}}</view>
+  <view class="margin-top-10 margin-bottom-30">{{aboutus.versions}}</view>
+  <text decode="{{true}}" space="emsp" class="h5" style="padding:34rpx;opacity:0.6;line-height:48rpx;">  {{aboutus.content}}</text>
+</view>
+
+
+
+
+
+<!-- <view class="banquan text-center" >©️版权所有，湖南灼品智能科技有限公司</view> -->

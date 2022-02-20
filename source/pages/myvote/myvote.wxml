@@ -1,0 +1,99 @@
+<!--pages/myvote/myvote.wxml-->
+
+<view class='flex-row  flex-center bg-white top' style='height:80rpx;'>
+
+  <view class='flex-row flex-column flex-1' data-order='A' bindtap='bindorder'>
+    <view class=' txt-bold flex-1 text-center {{order=="A"?"txt-primary":""}}'>投票</view>
+    <view class='order {{order=="A"?"bg-primary":"bg-white"}}'></view>
+  </view>
+
+  <view class='flex-row flex-column flex-1 ' data-order='D' bindtap='bindorder'>
+    <view class='txt-bold flex-1 text-center {{order=="D"?"txt-primary":""}}'>表决</view>
+    <view class='order {{order=="D"?"bg-primary":"bg-white"}}'></view>
+  </view>
+
+  <view class='flex-row flex-column flex-1 ' data-order='B' bindtap='bindorder'>
+    <view class='txt-bold flex-1 text-center {{order=="B"?"txt-primary":""}}'>评分</view>
+    <view class='order {{order=="B"?"bg-primary":"bg-white"}}'></view>
+  </view>
+
+  <view class='flex-row flex-column flex-1 ' data-order='C' bindtap='bindorder'>
+    <view class='txt-bold flex-1 text-center {{order=="C"?"txt-primary":""}}'>排名</view>
+    <view class='order {{order=="C"?"bg-primary":"bg-white"}}'></view>
+  </view>
+
+
+
+</view>
+
+<view style="height:100rpx;"></view>
+
+<view wx:if='{{order=="A"}}' bindtap="topage" data-name="votedetail" id="{{item.id}}" class="padding-30 bg-white margin-bottom-20" wx:for='{{votelist}}' wx:key='k'>
+  <view class="txt-gray">{{item.theme}}</view>
+
+  <view class="opa h6 margin-top">创建时间：{{item.created_realtime}}</view>
+  <view class="opa h6 margin-top-10">结束时间：{{item.dealline_realtime}}</view>
+
+  <view class="flex-row flex-center margin-top-10">
+    <view class="txt-primary h5">{{item.peoplenum==""?0:item.peoplenum}}人</view>
+    <view class="opa margin-left-10 h5">已参与投票</view>
+    <view class=" opa margin-left-10 h5" wx:if='{{item.peoplenum==""}}'>记得分享投票哦</view>
+    <view class="flex-1"></view>
+    <view class="status_block h6" wx:if='{{item.votestatus=="B"}}'>已结束</view>
+    <view class="status_block2 h6 txt-white" wx:if='{{item.votestatus=="A"}}'>{{item.timeslot}}后结束 </view>
+
+  </view>
+
+
+
+</view>
+
+<view wx:if='{{order=="B"}}' bindtap="topage" data-name="scoredetail" id="{{item.id}}" class="padding-30 bg-white margin-bottom-20" wx:for='{{gradelist}}' wx:key='k'>
+  <view class="txt-gray">{{item.theme}}</view>
+
+  <view class="opa h6 margin-top">创建时间：{{item.created_realtime}}</view>
+  <view class="opa h6 margin-top-10">结束时间：{{item.dealline_realtime}}</view>
+
+  <view class="flex-row flex-center margin-top-10">
+    <view class="txt-primary h5">{{item.peoplenum==""?0:item.peoplenum}}人</view>
+    <view class="opa margin-left-10 h5">已参与评分</view>
+    <view class=" opa margin-left-10 h5" wx:if='{{item.peoplenum==""}}'>记得分享评分哦</view>
+    <view class="flex-1"></view>
+    <view class="status_block h6" wx:if='{{item.gradestatus=="B"}}'>已结束</view>
+    <view class="status_block2 h6 txt-white" wx:if='{{item.gradestatus=="A"}}'>{{item.timeslot}}后结束</view>
+  </view>
+</view>
+
+<view wx:if='{{order=="C"}}' bindtap="topage" data-name="rankingdetail" id="{{item.id}}" class="padding-30 bg-white margin-bottom-20" wx:for='{{rankinglist}}' wx:key='k'>
+  <view class="txt-gray">{{item.theme}}</view>
+  <view class="opa h6 margin-top">创建时间：{{item.created_realtime}}</view>
+  <view class="opa h6 margin-top-10">结束时间：{{item.dealline_realtime}}</view>
+
+  <view class="flex-row flex-center margin-top-10">
+    <view class="txt-primary h5">{{item.peoplenum==""?0:item.peoplenum}}人</view>
+    <view class="opa margin-left-10 h5">已参与排名</view>
+    <view class=" opa margin-left-10 h5" wx:if='{{item.peoplenum==""}}'>记得分享排名哦</view>
+    <view class="flex-1"></view>
+    <view class="status_block h6" wx:if='{{item.rankingstatus=="B"}}'>已结束</view>
+    <view class="status_block2 h6 txt-white" wx:if='{{item.rankingstatus=="A"}}'>{{item.timeslot}}后结束</view>
+  </view>
+</view>
+
+<view wx:if='{{order=="D"}}' bindtap="topage" data-name="ballotdetail" id="{{item.id}}" class="padding-30 bg-white margin-bottom-20" wx:for='{{ballotlist}}' wx:key='k'>
+  <view class="txt-gray">{{item.theme}}</view>
+  <view class="opa h6 margin-top">创建时间：{{item.created_realtime}}</view>
+  <view class="opa h6 margin-top-10">结束时间：{{item.dealline_realtime}}</view>
+
+  <view class="flex-row flex-center margin-top-10">
+    <view class="txt-primary h5">{{item.peoplenum==""?0:item.peoplenum}}人</view>
+    <view class="opa margin-left-10 h5">已参与表决</view>
+    <view class=" opa margin-left-10 h5" wx:if='{{item.peoplenum==""}}'>记得分享表决哦</view>
+    <view class="flex-1"></view>
+    <view class="status_block h6" wx:if='{{item.ballotstatus=="B"}}'>已结束</view>
+    <view class="status_block2 h6 txt-white" wx:if='{{item.ballotstatus=="A"}}'>{{item.timeslot}}后结束</view>
+  </view>
+</view>
+
+<view class="text-center h5">已经到底了~</view>
+
+<view class="height-70"></view>

@@ -1,0 +1,52 @@
+/* pages/newranking/newranking.wxss */
+ Page{
+  background: rgb(248, 248, 248);
+}
+.paddings{
+  padding: 30rpx 40rpx 30rpx 40rpx;
+}
+.margin-top-2{
+  margin-top: 2rpx;
+}
+ .button{ 
+   height: 80rpx;
+   line-height: 80rpx;
+   color: white;
+   border-radius: 10rpx;
+ }
+ .button-hover{ 
+   background: #005B5C;
+   color: rgb(221, 221, 221); 
+ }
+
+   .blackblock {
+  position: fixed;
+  z-index: 100;
+  background: black;
+  opacity: 0.5;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+ 
+.inputblock {
+   position: fixed;
+  z-index: 100;
+   top: 30%; 
+  width: 500rpx;
+  height: 500rpx;
+  padding: 20rpx 10rpx 20rpx 20rpx;
+  border-radius: 20rpx;
+  background: white;
+}
+.inputblock3 {
+  position: fixed;
+ z-index: 100;
+  top: 30%; 
+ width: 500rpx;
+ height: 300rpx;
+ padding: 20rpx 10rpx 20rpx 20rpx;
+ border-radius: 20rpx;
+ background: white;
+}

@@ -1,0 +1,120 @@
+<!--pages/newballot/newballot.wxml--> 
+
+<view class=" padding-20 bg-white margin-top-20">
+  <input placeholder="表决主题" placeholder-style="color:rgb(214, 214, 214)" class=" h3 padding-20" style="height:50rpx" bindinput="zhuti" value="{{zhuti}}"></input>
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-5">
+  <input style="height:40rpx" placeholder="表决描述（选填）" placeholder-style="color:rgb(214, 214, 214)" class="   flex-1" bindinput='miaoshu' value="{{miaoshu}}"></input>
+  <view class="flex-row flex-top padding-10">
+    <image src="{{uploadpath}}resource/{{res.addimg}}" wx:if='{{photo==null}}' class="icon-40" bindtap="avatarmiaoshu" id="{{idx}}"></image>
+
+    <image src="{{uploadpath}}ballot/{{photo}}" wx:if='{{photo!=null}}' class="icon-40" bindtap="avatarmiaoshu" id="{{idx}}"></image>
+
+    <!-- <image wx:if='{{1==2}}' src="{{uploadpath}}resource/{{res.close}}" class="icon-17" style="margin-left:-10rpx;margin-top:-10rpx"></image> -->
+    
+  </view>
+</view>
+
+
+
+<view class="flex-row flex-center paddings bg-white {{idx>0?'margin-top-2':' margin-top-20'}} " wx:for='{{list}}' wx:key='k' wx:for-index='idx'>
+
+  <image src="{{uploadpath}}resource/{{res.deleted}}" class="icon-17" bindtap="deleted" id="{{item.id}}"></image>
+
+
+  <input style="height:40rpx" placeholder="请输入选项" placeholder-style="color:rgb(214, 214, 214)" class=" margin-left-20  flex-1" bindinput="input" id="{{idx}}" value="{{item.name}}"></input>
+
+  <view class="flex-row flex-top padding-10">
+
+    <image src="{{uploadpath}}resource/{{res.addimg}}" wx:if='{{item.img==""}}' class="icon-40" bindtap="avatar" id="{{idx}}"></image>
+
+    <image src="{{uploadpath}}ballotoption/{{item.img}}" wx:if='{{item.img!=""}}' class="icon-40"></image>
+
+    <!-- <image wx:if='{{1==2}}' src="{{uploadpath}}resource/{{res.close}}" class="icon-17" style="margin-left:-10rpx;margin-top:-10rpx"></image> -->
+
+  </view>
+</view>
+
+
+
+<view class="flex-row flex-center paddings bg-white margin-top-2" bindtap="addmore">
+
+  <image src="{{uploadpath}}resource/{{res.add}}" class="icon-17"></image>
+  <view class="margin-left-20 txt-blue flex-1">添加选项</view>
+
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+
+  <view class=" txt-black ">截止时间</view>
+  <picker class="flex-1" bindchange="bindtime" range="{{jiezhi}}" range-key="time" value="{{4}}">
+    <input style="height:40rpx" placeholder="待选" disabled="{{true}}" class="text-right " value="{{time}}"></input>
+  </picker>
+  <view class="margin-left-10">后结束</view>
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+
+  <view class=" txt-black ">表决选项</view> 
+  <picker class="flex-1" bindchange="bindjijie" range="{{optionlist}}" range-key="optionname" value="{{0}}">
+    <input style="height:40rpx" placeholder="待选" disabled="{{true}}" class="text-right " value="{{optionname}}"></input>
+  </picker> 
+
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+  <view   class=" txt-black flex-1">匿名评审</view>
+  <!-- <view wx:if='{{niming=="N"}}' class=" txt-black flex-1">实名评审</view> -->
+  <switch color='#005B5C' checked="{{niming=='N'?false:true}}" bindchange="niming" />
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+  <view class=" txt-black ">评审结果仅创建者可见  </view>
+    <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon-17 margin-left-20" bindtap="tishi2"></image>
+  <view class="flex-1"></view>
+  <switch color='#005B5C' checked="{{kejian=='N'?false:true}}" bindchange="kejian" />
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+  <view class=" txt-black ">允许评委查看详细评审数据</view>
+    <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon-17 margin-left-20" bindtap="tishi3"></image>
+  <view class="flex-1"></view>
+  <switch color='#005B5C' checked="{{yunxu=='N'?false:true}}" bindchange="yunxu" />
+</view>
+
+<view class="flex-row flex-center paddings bg-white margin-top-2">
+  <view class=" txt-black flex-1">手机号码</view>
+  <button class="clear-button  " open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo">
+    <input style="height:40rpx;" disabled="{{true}}" placeholder="授权获取手机号" value="{{memberinfo.mobile==''?'获取手机号':memberinfo.mobile}}" class="h5 text-center  phoneinput"></input>
+  </button>
+</view>
+
+<!-- <view class="flex-row flex-center paddings bg-white margin-top-2">
+  <view class=" txt-black flex-1">允许只对部分选项表决</view>
+  <switch color='#005B5C' checked="{{duoxuan=='Y'?true:false}}" bindchange="duoxuan" />
+</view> -->
+
+<view class="button bg-primary margin-40 text-center txt-bold" hover-class="button-hover " bindtap="submit">创建表决</view>
+
+<view style="height:50rpx;"></view>
+
+<view wx:if='{{tishi2==true}}'>
+  <view class="blackblock" bindtap="close"></view>
+  <view class=" flex-row flex-column"> 
+    <view class="inputblock2  ">
+    <text decode="{{true}}" space="emsp" class="h5" >{{instinfo.kejianjieshi}}</text>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{tishi3==true}}'>
+  <view class="blackblock" bindtap="close"></view>
+  <view class=" flex-row flex-column"> 
+    <view class="inputblock2  ">
+    <text decode="{{true}}" space="emsp" class="h5" >{{instinfo.yunxujieshi}}</text>
+    </view>
+  </view>
+</view>
+
+<button wx:if='{{memberinfo==null||memberinfo==undefined}}' class="btns bg-tst " hover-class="bg-tst" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> </button>

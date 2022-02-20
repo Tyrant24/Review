@@ -1,0 +1,18 @@
+<!--pages/fankui/fankui.wxml-->
+<view class="height-40"></view>
+
+<view class="flex-row flex-center margin-50">
+  <!-- <view class="h5">联系方式(选填)</view> -->
+  <input class="bg-white h5 padding-20 inputs" placeholder="联系方式(选填)" bindinput="bindlianxi"></input>
+</view>
+
+<view class="flex-row flex-column margin-50 ">
+
+
+  <textarea  placeholder-class="place-holder" maxlength="30" class="padding-20 block bg-white  h5" bindinput="bindinput" placeholder="请输入您的反馈意见"></textarea>
+</view>
+
+<view class="button bg-primary margin-50 text-center txt-bold" hover-class="button-hover " bindtap="submit">提交反馈</view>
+
+
+
